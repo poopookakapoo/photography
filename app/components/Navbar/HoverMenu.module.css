@@ -1,0 +1,31 @@
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 140ms ease, transform 140ms ease;
+  pointer-events: none; /* activated via parent :hover/:focus-within */
+}
+
+.item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 120ms ease, color 120ms ease;
+  color: var(--navbar);
+}
+
+.item:hover,
+.item:focus-visible {
+  background: rgba(255,255,255,0.08);
+  color: var(--navbar);
+  outline: none;
+}
