@@ -1,16 +1,15 @@
-/* wrapper: keep the pill centred but size by viewport instead of content */
+
 .islandWrap {
   position: fixed;
   top: var(--nav-top);
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  /* Let the wrapper clamp the width; avoid max-content overflow */
-  width: 100%;
-  max-width: min(92vw, 1100px);
+  width: max-content;
+  max-width: none;
 }
 
-/* the island */
+
 .island {
   display: flex;
   align-items: center;
@@ -21,10 +20,9 @@
   border: 1px solid var(--border);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  overflow: visible; /* keep for submenus */
+  overflow: visible;
 }
 
-/* brand never shrinks */
 .brand {
   flex: 0 0 auto;
   letter-spacing: 0.24em;
@@ -34,7 +32,6 @@
   border-radius: 10px;
 }
 
-/* menu must be allowed to shrink within the pill */
 .menu {
   display: flex;
   gap: 18px;
@@ -42,8 +39,8 @@
   padding: 0;
   margin: 0;
 
-  flex: 1 1 auto;   /* grow and shrink */
-  min-width: 0;     /* 🔑 allows shrinking below intrinsic width */
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 @media (max-width: 640px) {
@@ -52,10 +49,10 @@
 
   .menu {
     gap: 16px;
-    flex-wrap: nowrap;           /* keep one line */
-    overflow-x: auto;            /* enable scroll */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;       /* Firefox */
+    scrollbar-width: none;
   }
-  .menu::-webkit-scrollbar { display: none; } /* WebKit */
+  .menu::-webkit-scrollbar { display: none; }
 }
