@@ -15,7 +15,7 @@ export default function Navbar() {
           <NavItem label="Gallery" href="/#gallery"/>
           <NavItem label="About" href="/#about" />
           <NavItem label="Services" href="/#services"/>
-          <NavItem label="Contact" href="#contact" />
+          <NavItem label="Contact" href="#contact" className={styles.hideMobile} />
         </ul>
       </nav>
     </header>

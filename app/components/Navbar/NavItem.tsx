@@ -6,14 +6,32 @@ import HoverMenu from "./HoverMenu";
 
 type HoverItem = { label: string; href: string };
 
+type NavItemProps = {
+  label: string;
+  href: string;
+  hoverItems?: HoverItem[];
+  className?: string;
+  hiddenOnMobile?: boolean;
+};
+
 export default function NavItem({
-  label, href, hoverItems
-}: { label: string; href: string; hoverItems?: HoverItem[] }) {
-  // CSS handles hover/focus; no JS state needed
+  label,
+  href,
+  hoverItems,
+  className,
+  hiddenOnMobile,
+}: NavItemProps) {
+  const liClass = [styles.item, className].filter(Boolean).join(" ");
+
   return (
-    <li className={styles.item} role="none">
+    <li className={liClass} role="none" data-hide-mobile={hiddenOnMobile ? "" : undefined}>
       <div className={styles.triggerWrap}>
-        <Link className={styles.trigger} href={href} role="menuitem" aria-haspopup={hoverItems ? "true" : "false"}>
+        <Link
+          className={styles.trigger}
+          href={href}
+          role="menuitem"
+          aria-haspopup={hoverItems ? "true" : "false"}
+        >
           {label}
         </Link>
         {hoverItems && <HoverMenu items={hoverItems} />}

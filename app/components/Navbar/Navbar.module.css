@@ -1,4 +1,4 @@
-
+/* === Desktop defaults (restore original look) === */
 .islandWrap {
   position: fixed;
   top: var(--nav-top);
@@ -8,7 +8,6 @@
   width: max-content;
   max-width: none;
 }
-
 
 .island {
   display: flex;
@@ -31,6 +30,8 @@
   padding: 6px 10px;
   border-radius: 10px;
 }
+.brand a:hover { color: var(--accent); }
+
 
 .menu {
   display: flex;
@@ -43,9 +44,24 @@
   min-width: 0;
 }
 
+
+
+/* === Mobile behaviour (only below 640px) === */
 @media (max-width: 640px) {
-  .island { gap: 12px; padding: 8px 10px; }
-  .brand { font-size: 12px; padding: 4px 8px; }
+  .islandWrap {
+    width: 100%;
+    max-width: min(92vw, 1100px);
+  }
+
+  .island {
+    gap: 12px;
+    padding: 8px 10px;
+  }
+
+  .brand {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
 
   .menu {
     gap: 16px;
@@ -55,4 +71,9 @@
     scrollbar-width: none;
   }
   .menu::-webkit-scrollbar { display: none; }
+
+  .hideMobile {
+    display: none !important;
+  }
+
 }
