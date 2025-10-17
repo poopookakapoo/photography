@@ -1,15 +1,16 @@
-/* wrapper positions the island at the very top center, detached */
+/* wrapper: keep the pill centred but size by viewport instead of content */
 .islandWrap {
   position: fixed;
   top: var(--nav-top);
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: max-content;
+  /* Let the wrapper clamp the width; avoid max-content overflow */
+  width: 100%;
   max-width: min(92vw, 1100px);
 }
 
-/* the island itself */
+/* the island */
 .island {
   display: flex;
   align-items: center;
@@ -20,26 +21,41 @@
   border: 1px solid var(--border);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  overflow: visible; /* keep for submenus */
 }
 
-/* brand */
+/* brand never shrinks */
 .brand {
+  flex: 0 0 auto;
   letter-spacing: 0.24em;
   font-weight: 700;
   font-size: 14px;
   padding: 6px 10px;
   border-radius: 10px;
 }
-.brand a:hover { color: var(--accent); }
 
-/* menu */
+/* menu must be allowed to shrink within the pill */
 .menu {
   display: flex;
   gap: 18px;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  flex: 1 1 auto;   /* grow and shrink */
+  min-width: 0;     /* 🔑 allows shrinking below intrinsic width */
 }
 
-/* make sure hover submenus can escape the rounded container */
-.island { overflow: visible; }
+@media (max-width: 640px) {
+  .island { gap: 12px; padding: 8px 10px; }
+  .brand { font-size: 12px; padding: 4px 8px; }
+
+  .menu {
+    gap: 16px;
+    flex-wrap: nowrap;           /* keep one line */
+    overflow-x: auto;            /* enable scroll */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;       /* Firefox */
+  }
+  .menu::-webkit-scrollbar { display: none; } /* WebKit */
+}
