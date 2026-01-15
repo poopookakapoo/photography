@@ -1,0 +1,198 @@
+/* Trigger button (the hamburger in the header) */
+.trigger{
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(17,17,17,.16);
+  border-radius: 999px;
+
+  color: rgba(17,17,17,.90);
+  cursor: pointer;
+  padding: 0;
+}
+
+.trigger:hover{
+  background: rgba(255,255,255,.34);
+}
+
+.trigger:active{
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .trigger:active{ transform: none; }
+}
+
+/* Full-screen glass overlay */
+.overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: rgba(10, 10, 10, .55);
+  backdrop-filter: blur(10px) saturate(1.10);
+  -webkit-backdrop-filter: blur(10px) saturate(1.10);
+
+  /* Top-align instead of centring */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  /* Respect notches + give breathing room */
+  padding-top: max(14px, env(safe-area-inset-top));
+  padding-left: max(18px, env(safe-area-inset-left));
+  padding-right: max(18px, env(safe-area-inset-right));
+  padding-bottom: max(18px, env(safe-area-inset-bottom));
+
+  animation: fadeIn 160ms ease-out;
+}
+
+
+
+
+/* Centred “sheet” */
+.panel{
+  width: min(520px, calc(100vw - 36px)); /* ties exactly to overlay padding */
+  margin: 0 auto;
+
+  /* more opaque glass */
+  background: rgb(250, 246, 240);
+  border: 1px solid rgba(255, 255, 255, .45);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+
+  backdrop-filter: blur(18px) saturate(1.10);
+  -webkit-backdrop-filter: blur(18px) saturate(1.10);
+
+  border-radius: 26px;
+  padding: 18px;
+
+  animation: riseIn 180ms ease-out;
+}
+
+
+.topRow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.titleBlock{
+  display: grid;
+  gap: 2px;
+}
+
+.menuTitle{
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.menuSub{
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: .75;
+}
+
+/* Close button matches the trigger */
+.close{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(17,17,17,.14);
+  border-radius: 999px;
+
+  cursor: pointer;
+  padding: 0;
+}
+
+.close:hover{
+  background: rgba(255,255,255,.34);
+  border-color: rgba(17,17,17,.20);
+}
+
+/* Links: large, editorial, minimal */
+.links{
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.link,
+.linkEmphasis{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 14px;
+  border-radius: 18px;
+
+  text-decoration: none;
+  color: rgba(17,17,17,.92);
+
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.05;
+
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.10);
+}
+
+.link:hover{
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.20);
+}
+
+/* Slight emphasis for Contact without changing the nav content */
+.linkEmphasis{
+  background: rgba(17,17,17,.08);
+  border-color: rgba(17,17,17,.10);
+}
+.linkEmphasis:hover{
+  background: rgba(17,17,17,.12);
+  border-color: rgba(17,17,17,.14);
+}
+
+.footerRow{
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hint{
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: .70;
+}
+
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+
+@keyframes riseIn{
+  from{ opacity: 0; transform: translateY(10px) scale(.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .overlay, .panel{
+    animation: none;
+  }
+}

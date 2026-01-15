@@ -1,0 +1,10 @@
+.link{
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  opacity: .9;
+}
+.link:hover{
+  color: rgba(76, 65, 65, 0.589);
+}

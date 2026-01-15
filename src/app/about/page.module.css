@@ -1,0 +1,136 @@
+.page{
+  padding: var(--space-8) 0;
+}
+
+.header{
+  max-width: 920px;
+  margin-bottom: var(--space-7);
+}
+
+.kicker{
+  margin: 0 0 var(--space-3);
+  font-size: 12px;
+  letter-spacing: 3px;
+  opacity: .7;
+}
+
+.title{
+  margin: 0 0 var(--space-4);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(46px, 5.5vw, 86px);
+  line-height: 1.02;
+  letter-spacing: .2px;
+}
+
+.lead{
+  margin: 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.imageWrap{
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #eee;
+  border: 1px solid rgba(17,17,17,.08);
+}
+
+/* Editorial “premium” touch: keep the portrait visible while reading on desktop */
+@media (min-width: 900px){
+  .imageWrap{
+    position: sticky;
+    top: calc(78px + var(--space-6)); /* header height + breathing room */
+  }
+}
+
+.image{
+  object-fit: cover;
+  object-position: center;
+}
+
+.content{
+  max-width: 680px;
+}
+
+.body{
+  margin: 0 0 var(--space-4);
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.rule{
+  height: 1px;
+  background: rgba(17,17,17,.10);
+  margin: var(--space-6) 0;
+}
+
+.list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.item{
+  display: grid;
+  gap: 4px;
+}
+
+.itemTitle{
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.itemText{
+  margin: 0;
+  color: var(--muted);
+}
+
+.ctaRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-6);
+}
+
+.primary{
+  display: inline-flex;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+}
+
+.primary:hover{
+  opacity: .92;
+}
+
+.secondary{
+  display: inline-flex;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(17,17,17,.35);
+}
+
+.secondary:hover{
+  border-bottom-color: rgba(17,17,17,.75);
+}
+
+@media (max-width: 900px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}
