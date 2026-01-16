@@ -18,12 +18,12 @@ export default function HeroSection() {
       <div className={styles.overlay} />
       <Container>
         <div className={styles.content}>
-          <div className={styles.eyebrow}>CALIFORNIA-BASED WEDDING & ELOPEMENT PHOTOGRAPHER</div>
+          <div className={styles.eyebrow}>PROFESSIONAL PHOTOGRAPHER BASED IN SACRAMENTO CA</div>
           <h1 className={styles.title}>
-            Bold Phrase, Catch the Eye, super short.
+            Capturing Real Moments For You.
           </h1>
           <div className={styles.actions}>
-            <Button href="/contact">Enquire</Button>
+            <Button href="/contact">Contact</Button>
             <a className={styles.secondary} href="/portfolio">View portfolio</a>
           </div>
         </div>

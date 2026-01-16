@@ -8,7 +8,7 @@ export default function CtaSection() {
         <div className={styles.card}>
           <h2 className={styles.heading}>Ready to plan something beautiful?</h2>
           <p className={styles.sub}>
-            Placeholder copy. Swap this for your enquiry guidance and response time.
+            Contact me, and book your photoshoot here.
           </p>
           <div className={styles.actions}>
             <a className={styles.primary} href="/contact">Contact</a>

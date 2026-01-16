@@ -20,13 +20,12 @@ export default function AboutSection() {
 
           <div className={styles.text}>
             <div className={styles.kicker}>ABOUT</div>
-            <h2 className={styles.heading}>A calm, documentary approach</h2>
+            <h2 className={styles.heading}>My name is Alexander, and i do beautiful portraits.</h2>
             <p className={styles.paragraph}>
-              This is placeholder copy. The layout is designed to match a refined editorial style:
-              generous spacing, serif headings, and restrained colour.
+              
             </p>
             <p className={styles.paragraph}>
-              Replace with your biography, process, and location coverage.
+              Photographing calmly and attentively, helping people feel natural. The results are honest, expressive portraits with character.
             </p>
 
             <a className={styles.link} href="/about">

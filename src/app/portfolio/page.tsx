@@ -11,7 +11,7 @@ export default function PortfolioPage() {
           <p className={styles.kicker}>PORTFOLIO</p>
           <h1 className={styles.title}>Selected work</h1>
           <p className={styles.lead}>
-            Minimal, editorial presentation. Replace this sentence when you are ready.
+            Focused on people, light and real moments.
           </p>
 
           <div className={styles.actions}>

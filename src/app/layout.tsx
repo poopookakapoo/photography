@@ -6,8 +6,48 @@ import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 
 export const metadata: Metadata = {
-  title: site.brand,
-  description: `${site.brand} — ${site.subbrand}`,
+  metadataBase: new URL(site.url),
+
+  title: {
+    default: site.brand,
+    template: `%s · ${site.brand}`,
+  },
+
+  description: site.description ?? `${site.brand}${site.subbrand ? ` — ${site.subbrand}` : ""}`,
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: site.url,
+    title: site.brand,
+    description:
+      site.description ?? `${site.brand}${site.subbrand ? ` — ${site.subbrand}` : ""}`,
+    siteName: site.brand,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: site.brand,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: site.brand,
+    description:
+      site.description ?? `${site.brand}${site.subbrand ? ` — ${site.subbrand}` : ""}`,
+    images: ["/og.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <SkipLink />
-        <SiteHeader overlay/>
+        <SiteHeader overlay />
         <main id="main">{children}</main>
         <SiteFooter />
       </body>

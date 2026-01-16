@@ -22,3 +22,4 @@ export default function MasonryGrid({ items }: { items: GalleryItem[] }) {
     </div>
   );
 }
+

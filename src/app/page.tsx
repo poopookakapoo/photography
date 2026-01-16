@@ -1,13 +1,13 @@
 import HeroSection from "@/sections/HeroSection";
-import GallerySection from "@/sections/GallerySection";
 import AboutSection from "@/sections/AboutSection";
 import CtaSection from "@/sections/CtaSection";
+import GallerySectionClient from "@/sections/GallerySectionClient";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <GallerySection />
+      <GallerySectionClient />
       <AboutSection />
       <CtaSection />
     </>

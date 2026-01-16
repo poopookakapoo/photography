@@ -3,7 +3,6 @@ import styles from "./page.module.css";
 
 type Package = {
   name: string;
-  price: string;
   note: string;
   bullets: string[];
   featured?: boolean;
@@ -12,22 +11,31 @@ type Package = {
 const PACKAGES: Package[] = [
   {
     name: "Essential",
-    price: "$1,800",
     note: "For intimate sessions and short coverage.",
     bullets: ["Up to 2 hours", "Planning call", "Online gallery", "High-resolution downloads"],
   },
   {
     name: "Signature",
-    price: "$3,600",
     note: "The balanced option for most weddings.",
-    bullets: ["Up to 6 hours", "Timeline guidance", "Online gallery", "High-resolution downloads", "Preview set within 72 hours"],
+    bullets: [
+      "Up to 6 hours",
+      "Timeline guidance",
+      "Online gallery",
+      "High-resolution downloads",
+      "Preview set within 72 hours",
+    ],
     featured: true,
   },
   {
     name: "Full Day",
-    price: "$5,200",
     note: "Comprehensive coverage from start to finish.",
-    bullets: ["Up to 10 hours", "Second photographer option", "Online gallery", "High-resolution downloads", "Extended preview set"],
+    bullets: [
+      "Up to 10 hours",
+      "Second photographer option",
+      "Online gallery",
+      "High-resolution downloads",
+      "Extended preview set",
+    ],
   },
 ];
 
@@ -39,10 +47,22 @@ const ADDONS = [
 ];
 
 const FAQ = [
-  { q: "How far in advance should we book?", a: "If you have a date in mind, booking earlier is best—especially for peak weekends. If you are flexible, reach out and we can explore options." },
-  { q: "Do you travel?", a: "Yes. Travel terms depend on location and scope. For destinations, I will provide a simple, transparent estimate." },
-  { q: "When will we receive our photos?", a: "Delivery timelines vary by season and coverage. I will confirm a clear delivery window during booking." },
-  { q: "Do you help with posing?", a: "Yes—light direction and natural prompts. The goal is to keep things comfortable and authentic rather than overly posed." },
+  {
+    q: "How far in advance should we book?",
+    a: "If you have a date in mind, booking earlier is best—especially for peak weekends. If you are flexible, reach out and we can explore options.",
+  },
+  {
+    q: "Do you travel?",
+    a: "Yes. Travel terms depend on location and scope. For destinations, I will provide a simple, transparent estimate.",
+  },
+  {
+    q: "When will we receive our photos?",
+    a: "Delivery timelines vary by season and coverage. I will confirm a clear delivery window during booking.",
+  },
+  {
+    q: "Do you help with posing?",
+    a: "Yes—light direction and natural prompts. The goal is to keep things comfortable and authentic rather than overly posed.",
+  },
 ];
 
 export default function PricingPage() {
@@ -53,13 +73,17 @@ export default function PricingPage() {
           <p className={styles.kicker}>PRICING</p>
           <h1 className={styles.title}>Simple packages. Thoughtful coverage.</h1>
           <p className={styles.lead}>
-            Replace pricing and deliverables as needed. Keep the structure minimal: fewer options, clear inclusions,
-            and an easy next step.
+            Packages below outline typical coverage. Final pricing is tailored to your date, location, and the level of
+            coverage you need. Enquire for a personalised quote.
           </p>
 
           <div className={styles.actions}>
-            <a className={styles.primary} href="/contact">Enquire</a>
-            <a className={styles.secondary} href="/portfolio">View portfolio</a>
+            <a className={styles.primary} href="/contact">
+              Contact
+            </a>
+            <a className={styles.secondary} href="/portfolio">
+              View portfolio
+            </a>
           </div>
         </header>
 
@@ -68,6 +92,7 @@ export default function PricingPage() {
             <article
               key={p.name}
               className={p.featured ? styles.cardFeatured : styles.card}
+              aria-label={`${p.name} package`}
             >
               <div className={styles.cardTop}>
                 <div>
@@ -75,9 +100,9 @@ export default function PricingPage() {
                   <div className={styles.packageNote}>{p.note}</div>
                 </div>
 
-                <div className={styles.priceBlock}>
-                  <div className={styles.price}>{p.price}</div>
-                  <div className={styles.priceMeta}>starting at</div>
+                <div className={styles.priceBlock} aria-label="Pricing note">
+                  <div className={styles.price}>Tailored</div>
+                  <div className={styles.priceMeta}>Quoted per client</div>
                 </div>
               </div>
 
@@ -85,7 +110,9 @@ export default function PricingPage() {
 
               <ul className={styles.bullets}>
                 {p.bullets.map((b) => (
-                  <li key={b} className={styles.bullet}>{b}</li>
+                  <li key={b} className={styles.bullet}>
+                    {b}
+                  </li>
                 ))}
               </ul>
 
@@ -100,7 +127,8 @@ export default function PricingPage() {
           <div className={styles.inclusionsHead}>
             <h2 className={styles.h2}>What is included</h2>
             <p className={styles.sub}>
-              Keep this short and concrete. Avoid long lists; prioritise what clients actually care about.
+              Every booking includes planning support, a consistent edit, and a private gallery for viewing and
+              downloads.
             </p>
           </div>
 

@@ -4,50 +4,56 @@
   left: 0;
   right: 0;
   z-index: 999;
-
-  /* “floating island” spacing from viewport edges */
   padding: 10px 0;
-
-  /* important: do NOT paint a solid bar behind the island */
   background: transparent;
   margin-bottom: 10%;
 }
 
-/* wider than your normal Container (the “extend it on desktop” request) */
 .shell{
   width: min(1400px, calc(100% - 2*var(--space-5)));
   margin: 0 auto;
 }
 
 .island{
-  /* warm glass that still matches your palette */
-  background: rgba(239, 231, 221, 0.70);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
-
+  position: relative;
+  background: rgba(239,231,221,0.70);
   border-radius: 999px;
-
-  /* island padding */
-  padding: 6px 12px; 
+  padding: 6px 12px;
+  overflow: visible;
 }
 
-@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
-  .headerOverlay .island{
-    background: rgba(255,255,255,0.20);
-    backdrop-filter: blur(16px) saturate(1.15);
-    -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  }
+.island::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 231, 221, 0);
+
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+
+  border-radius: inherit;
+  -webkit-clip-path: inset(0 round 999px);
+  clip-path: inset(0 round 999px);
+
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+
+  pointer-events: none;
+  z-index: 0;
 }
 
 .inner{
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: var(--space-4);
-  min-height: 52px; 
+  min-height: 52px;
 }
 
-.left, .right{
+.left,
+.right{
   display: flex;
   align-items: center;
 }
@@ -72,37 +78,31 @@
   justify-content: flex-end;
 }
 
-/* Overlay variant: sits above hero and does not take layout space */
 .headerOverlay{
-  position: fixed;         /* <-- key change from absolute/sticky */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;            /* ensure it is above the hero */
+  z-index: 999;
   padding: 12px 0;
   background: transparent;
   margin-bottom: 10%;
-
-  /* allow clicking only on the island */
   pointer-events: none;
 }
 
 .headerOverlay .island{
   pointer-events: auto;
-}
-
-/* Optional: slightly “cooler” glass over photos */
-.headerOverlay .island{
   background: rgba(255,255,255,0.20);
   box-shadow:
     0 10px 30px rgba(0,0,0,0.18),
     inset 0 1px 0 rgba(255,255,255,0.30);
-  backdrop-filter: blur(32px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  pointer-events: auto;
   isolation: isolate;
 }
 
+.headerOverlay .island::before{
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  backdrop-filter: blur(16px) saturate(1.15);
+}
 
 @media (max-width: 900px){
 

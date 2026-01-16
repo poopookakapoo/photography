@@ -65,3 +65,9 @@
 .secondary:hover{
   border-bottom-color: rgba(255,255,255,.9);
 }
+
+@media (max-width: 700px){
+  .image{
+    object-position: 30% center;
+  }
+}

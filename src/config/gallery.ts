@@ -17,6 +17,7 @@ export const CATEGORY = [
   "Beauty Portraits",
   "Family Portraits",
   "Model Portraits",
+  "Wedding Photos",
 ] as const;
 
 export type Category = (typeof CATEGORY)[number];
@@ -38,11 +39,11 @@ export const galleryItems: GalleryItem[] = [
     featured: true,
   },
   { id: "img-2", src: img2, alt: "Gallery image 2", categories: ["Individual Portraits"] },
-  { id: "img-3", src: img3, alt: "Gallery image 3", categories: ["Family Portraits"] },
+  { id: "img-3", src: img3, alt: "Gallery image 3", categories: ["Wedding Photos"] },
   { id: "img-4", src: img4, alt: "Gallery image 4", categories: ["Individual Portraits"] },
-  { id: "img-5", src: img5, alt: "Gallery image 5", categories: ["Family Portraits"] },
+  { id: "img-5", src: img5, alt: "Gallery image 5", categories: ["Beauty Portraits"] },
   { id: "img-6", src: img6, alt: "Gallery image 6", categories: ["Family Portraits"] },
   { id: "img-7", src: img7, alt: "Gallery image 7", categories: ["Business Portraits"] },
-  { id: "img-8", src: img8, alt: "Gallery image 8", categories: ["Business Portraits"] },
-  { id: "img-9", src: img9, alt: "Gallery image 9", categories: ["Family Portraits"] },
+  { id: "img-8", src: img8, alt: "Gallery image 8", categories: ["Model Portraits"] },
+  { id: "img-9", src: img9, alt: "Gallery image 9", categories: ["Artistic Portraits"] },
 ];

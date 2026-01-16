@@ -26,7 +26,7 @@
 /* Mobile tuning */
 @media (max-width: 900px){
   .brand{
-    font-size: 22px;      /* was 34px */
+    font-size: 20px;      /* was 34px */
     letter-spacing: 0.3px;
     line-height: 1.02;
   }
